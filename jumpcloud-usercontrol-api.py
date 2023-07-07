@@ -9,7 +9,7 @@ green_check = colored("✔", "green")
 red_cross = colored("✘", "red")
 
 # Define the global headers variable
-headers = {"x-api-key": "adf9f3e230419b23d5d196bed13e67461381a252"}
+headers = {"x-api-key": "YOUR_API_KEY_HERE"}
 
 def list_all_users():
     url = "https://console.jumpcloud.com/api/systemusers/"
