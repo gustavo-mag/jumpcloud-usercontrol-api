@@ -9,9 +9,41 @@ import os
 green_check = colored("✔", "green")
 red_cross = colored("✘", "red")
 
-# Define the global headers variable
+# Define the global variables
 
+APP_VERSION = "2023.07.06"
 headers = {"x-api-key": os.environ.get("jc_token")}
+
+def logo():
+    # To clear the buffer on the screen on the first execution
+    os.system("cls" if os.name == "nt" else "clear")
+
+    # Show the Logo
+    print(
+        """
+
+                                               .........
+                                             .................
+                                       ..............((((((......
+                                    ........((((((..((((((((........
+                                    ........((((((...((((((.........
+                                      ....((((((((((((((((((((....
+
+
+       ***                                                  ***                              **
+                            .     .          .        .     ***      .                   .   **
+       ***  ***   ***  **,***** *****  *********  ****.**** ***  **** ****  ***   *** ****** **
+       ***  ***   ***  **    **    **, ***    ***,**        ***  **     **  ***   *** ***    **
+       ***  *********  **    **    **, ****  ***  **** **** ***  **** ****  ********* **** *.**
+       ***    *                        ***  .*       ,*,            ,*,       *         .*
+      ***                              ***
+
+                                         Jumpcloud User Control
+                                           Version {}
+    """.format(
+            APP_VERSION
+        )
+    )
 
 def list_all_users():
     url = "https://console.jumpcloud.com/api/systemusers/"
@@ -287,6 +319,7 @@ def revoke_all_sudos():
     print(revoked_table)
 
 # Main menu loop
+logo()
 while True:
     try:
         # Display menu options
