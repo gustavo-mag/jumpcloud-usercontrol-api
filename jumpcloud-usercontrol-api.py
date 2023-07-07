@@ -3,13 +3,15 @@ from tqdm import tqdm
 from prettytable import PrettyTable
 import sys
 from termcolor import colored
+import os
 
 # Set color variables
 green_check = colored("✔", "green")
 red_cross = colored("✘", "red")
 
 # Define the global headers variable
-headers = {"x-api-key": "YOUR_API_KEY_HERE"}
+
+headers = {"x-api-key": os.environ.get("jc_token")}
 
 def list_all_users():
     url = "https://console.jumpcloud.com/api/systemusers/"
